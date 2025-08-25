@@ -16,6 +16,29 @@ public class PolicyController : Controller
         _policyService = policyService;
     }
 
+    // GET: Policy/Create (Admin only)
+    [Authorize(Roles = "Admin")]
+    public IActionResult Create()
+    {
+        return View(new Policy());
+    }
+
+    // POST: Policy/Create (Admin only)
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    [Authorize(Roles = "Admin")]
+    public async Task<IActionResult> Create(Policy policy)
+    {
+        if (!ModelState.IsValid)
+        {
+            return View(policy);
+        }
+
+        await _policyService.AddPolicyAsync(policy);
+        TempData["SuccessMessage"] = "Policy created successfully!";
+        return RedirectToAction(nameof(Index));
+    }
+
     // GET: Policy/Index
     public async Task<IActionResult> Index()
     {

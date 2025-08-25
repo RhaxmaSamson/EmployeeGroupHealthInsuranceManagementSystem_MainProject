@@ -92,6 +92,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvT3JnYW5pemF0aW9uL0luZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[/workspace/EmployeeHealthInsurance/Views/Policy/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUG9saWN5L0NyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [/workspace/EmployeeHealthInsurance/Views/Policy/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUG9saWN5L0RlbGV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 

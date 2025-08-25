@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("EmployeeHealthInsurance")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2d8ab45053fee276eb0320e9d3398cd32cc7c6da")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b50ba9eb0ef46d26501871c99a0d764b9bd283c8")]
 [assembly: System.Reflection.AssemblyProductAttribute("EmployeeHealthInsurance")]
 [assembly: System.Reflection.AssemblyTitleAttribute("EmployeeHealthInsurance")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

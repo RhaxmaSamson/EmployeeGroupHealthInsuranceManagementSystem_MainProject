@@ -1,4 +1,4 @@
-﻿using EmployeeHealthInsurance.Data;
+using EmployeeHealthInsurance.Data;
 using EmployeeHealthInsurance.Models;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -41,17 +41,7 @@ namespace EmployeeHealthInsurance.Services
             existingPolicy.CoverageAmount = policyToUpdate.CoverageAmount;
             existingPolicy.PremiumAmount = policyToUpdate.PremiumAmount;
 
-            // Normalize enum for nvarchar column
-            string normalizedPolicyType = policyToUpdate.PolicyType.ToString().ToUpper();
-            if (Enum.TryParse<PolicyType>(normalizedPolicyType, out var parsedType))
-            {
-                existingPolicy.PolicyType = parsedType;
-            }
-            else
-            {
-                Console.WriteLine($"Invalid PolicyType: {policyToUpdate.PolicyType}");
-                return false;
-            }
+            existingPolicy.PolicyType = policyToUpdate.PolicyType;
 
             _context.Entry(existingPolicy).State = EntityState.Modified;
 
@@ -66,8 +56,12 @@ namespace EmployeeHealthInsurance.Services
                 return false;
             }
 
-            // ✅ Final fallback return (just in case)
-            return false;
+        }
+
+        public async Task AddPolicyAsync(Policy policy)
+        {
+            _context.Policies.Add(policy);
+            await _context.SaveChangesAsync();
         }
 
 
