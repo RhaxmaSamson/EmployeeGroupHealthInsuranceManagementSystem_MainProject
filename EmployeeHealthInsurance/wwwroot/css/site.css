@@ -1,0 +1,592 @@
+html {
+    font-size: 14px;
+    position: relative;
+    min-height: 100%;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+/* Professional Insurance Theme - Ocean Blue */
+:root {
+    --primary-blue: #1e3a8a;
+    --secondary-blue: #3b82f6;
+    --accent-blue: #60a5fa;
+    --light-blue: #dbeafe;
+    --dark-blue: #1e40af;
+    --ocean-blue: #0ea5e9;
+    --hospital-blue: #0284c7;
+    --success-blue: #059669;
+    --warning-blue: #d97706;
+    --danger-blue: #dc2626;
+    --info-blue: #0891b2;
+}
+
+body {
+    margin-bottom: 60px;
+    background-color: var(--bs-body-bg);
+    color: var(--bs-body-color);
+    font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', sans-serif;
+}
+
+/* Focus styles for accessibility */
+.btn:focus,
+.btn:active:focus,
+.btn-link.nav-link:focus,
+.form-control:focus,
+.form-check-input:focus {
+    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem var(--accent-blue);
+}
+
+/* Navbar styling with blue theme */
+.navbar {
+    background: linear-gradient(135deg, var(--primary-blue) 0%, var(--hospital-blue) 100%) !important;
+    box-shadow: 0 4px 20px rgba(30, 58, 138, 0.3);
+}
+
+.navbar-brand {
+    color: #ffffff !important;
+    font-weight: 600;
+}
+
+    .navbar-brand span {
+        color: #ffffff !important;
+    }
+
+.navbar-nav .nav-link {
+    color: rgba(255, 255, 255, 0.9) !important;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+    .navbar-nav .nav-link:hover,
+    .navbar-nav .nav-link:focus {
+        color: #ffffff !important;
+        transform: translateY(-1px);
+    }
+
+    .navbar-nav .nav-link::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        width: 0;
+        height: 2px;
+        background: var(--accent-blue);
+        transition: all 0.3s ease;
+        transform: translateX(-50%);
+    }
+
+    .navbar-nav .nav-link:hover::after {
+        width: 100%;
+    }
+
+/* Dropdown styling */
+/* Dropdown styling */
+.dropdown-menu {
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+}
+
+.dropdown-item {
+    color: var(--primary-blue);
+    font-weight: 500;
+    transition: all 0.3s ease;
+    border-radius: 8px;
+    margin: 2px 8px;
+}
+
+    .dropdown-item:hover {
+        background: var(--light-blue);
+        color: var(--primary-blue);
+    }
+
+/* Add a hover effect to the dropdown-toggle to indicate it's clickable */
+.nav-link.dropdown-toggle:hover {
+    color: var(--accent-blue) !important;
+}
+
+/* Optional: Add a subtle transform effect to the icon on hover if desired */
+.dropdown-item i {
+    transition: transform 0.3s ease;
+}
+
+.dropdown-item:hover i {
+    transform: translateX(5px);
+}
+/* Link styling */
+a {
+    color: var(--primary-blue);
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+    a:hover {
+        color: var(--hospital-blue);
+        text-decoration: none;
+        transform: translateY(-1px);
+    }
+
+/* Button styling - Global button styles updated for blue theme */
+.btn {
+    border-radius: 12px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    border: none;
+}
+
+    .btn::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+        transition: left 0.5s;
+    }
+
+    .btn:hover::before {
+        left: 100%;
+    }
+
+    .btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    }
+
+/* Primary buttons */
+.btn-primary {
+    background: linear-gradient(135deg, var(--secondary-blue) 0%, var(--primary-blue) 100%);
+    color: #ffffff;
+}
+
+    .btn-primary:hover {
+        background: linear-gradient(135deg, var(--primary-blue) 0%, var(--dark-blue) 100%);
+        box-shadow: 0 8px 25px rgba(59, 130, 246, 0.3);
+    }
+
+/* Success buttons */
+.btn-success {
+    background: linear-gradient(135deg, var(--success-blue) 0%, #047857 100%);
+    color: #ffffff;
+}
+
+    .btn-success:hover {
+        background: linear-gradient(135deg, #047857 0%, #065f46 100%);
+        box-shadow: 0 8px 25px rgba(5, 150, 105, 0.3);
+    }
+
+/* Info buttons */
+.btn-info {
+    background: linear-gradient(135deg, var(--info-blue) 0%, #0e7490 100%);
+    color: #ffffff;
+}
+
+    .btn-info:hover {
+        background: linear-gradient(135deg, #0e7490 0%, #155e75 100%);
+        box-shadow: 0 8px 25px rgba(8, 145, 178, 0.3);
+    }
+
+/* Warning buttons */
+.btn-warning {
+    background: linear-gradient(135deg, var(--warning-blue) 0%, #b45309 100%);
+    color: #ffffff;
+}
+
+    .btn-warning:hover {
+        background: linear-gradient(135deg, #b45309 0%, #92400e 100%);
+        box-shadow: 0 8px 25px rgba(217, 119, 6, 0.3);
+    }
+
+/* Danger buttons */
+.btn-danger {
+    background: linear-gradient(135deg, var(--danger-blue) 0%, #b91c1c 100%);
+    color: #ffffff;
+}
+
+    .btn-danger:hover {
+        background: linear-gradient(135deg, #b91c1c 0%, #991b1b 100%);
+        box-shadow: 0 8px 25px rgba(220, 38, 38, 0.3);
+    }
+
+/* Secondary buttons */
+.btn-secondary {
+    background: linear-gradient(135deg, #64748b 0%, #475569 100%);
+    color: #ffffff;
+}
+
+    .btn-secondary:hover {
+        background: linear-gradient(135deg, #475569 0%, #334155 100%);
+        box-shadow: 0 8px 25px rgba(100, 116, 139, 0.3);
+    }
+
+/* Outline buttons */
+.btn-outline-primary {
+    color: var(--primary-blue);
+    border: 2px solid var(--primary-blue);
+    background: transparent;
+}
+
+    .btn-outline-primary:hover {
+        background: var(--primary-blue);
+        color: #ffffff;
+        box-shadow: 0 8px 25px rgba(30, 58, 138, 0.3);
+    }
+
+.btn-outline-secondary {
+    color: var(--accent-blue);
+    border: 2px solid var(--accent-blue);
+    background: transparent;
+}
+
+    .btn-outline-secondary:hover {
+        background: var(--accent-blue);
+        color: #ffffff;
+        box-shadow: 0 8px 25px rgba(96, 165, 250, 0.3);
+    }
+
+/* Card styling */
+.card {
+    border-radius: 16px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+    border: none;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+    .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+    }
+
+.card-header {
+    border-radius: 16px 16px 0 0 !important;
+    padding: 1.25rem 1.5rem;
+    font-size: 1.25rem;
+    font-weight: 600;
+    background: linear-gradient(135deg, var(--primary-blue) 0%, var(--hospital-blue) 100%) !important;
+    color: #ffffff;
+    border: none;
+    position: relative;
+    overflow: hidden;
+}
+    .card-header::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(45deg, transparent 30%, rgba(255,255,255,0.1) 50%, transparent 70%);
+        animation: shimmer 3s infinite;
+    }
+
+@keyframes shimmer {
+    0% {
+        transform: translateX(-100%);
+    }
+
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+/* Form styling */
+.form-control, .form-select {
+    border-radius: 12px;
+    border: 2px solid #e5e7eb;
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    background: rgba(255, 255, 255, 0.9);
+}
+
+    .form-control:focus, .form-select:focus {
+        border-color: var(--accent-blue);
+        box-shadow: 0 0 0 0.2rem rgba(96, 165, 250, 0.25);
+        background: #ffffff;
+        transform: translateY(-1px);
+    }
+
+.form-floating > label {
+    color: #6b7280;
+    font-weight: 500;
+}
+
+.form-check-input:checked {
+    background-color: var(--primary-blue);
+    border-color: var(--primary-blue);
+}
+
+/* Table styling */
+.table {
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+    .table thead th {
+        background: linear-gradient(135deg, var(--primary-blue) 0%, var(--hospital-blue) 100%);
+        color: #ffffff;
+        border: none;
+        font-weight: 600;
+        padding: 1rem;
+    }
+
+    .table tbody tr {
+        transition: all 0.3s ease;
+    }
+
+        .table tbody tr:hover {
+            background: var(--light-blue);
+            transform: scale(1.01);
+        }
+
+/* Alert styling */
+.alert {
+    border-radius: 12px;
+    border: none;
+    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.alert-primary {
+    background: linear-gradient(135deg, var(--light-blue) 0%, rgba(96, 165, 250, 0.1) 100%);
+    color: var(--primary-blue);
+    border-left: 4px solid var(--primary-blue);
+}
+
+.alert-success {
+    background: linear-gradient(135deg, #d1fae5 0%, rgba(5, 150, 105, 0.1) 100%);
+    color: var(--success-blue);
+    border-left: 4px solid var(--success-blue);
+}
+
+.alert-warning {
+    background: linear-gradient(135deg, #fef3c7 0%, rgba(217, 119, 6, 0.1) 100%);
+    color: var(--warning-blue);
+    border-left: 4px solid var(--warning-blue);
+}
+
+.alert-danger {
+    background: linear-gradient(135deg, #fee2e2 0%, rgba(220, 38, 38, 0.1) 100%);
+    color: var(--danger-blue);
+    border-left: 4px solid var(--danger-blue);
+}
+
+.alert-info {
+    background: linear-gradient(135deg, #cffafe 0%, rgba(8, 145, 178, 0.1) 100%);
+    color: var(--info-blue);
+    border-left: 4px solid var(--info-blue);
+}
+
+/* Badge styling */
+.badge {
+    border-radius: 8px;
+    font-weight: 600;
+    padding: 0.5rem 0.75rem;
+}
+
+.badge-primary {
+    background: var(--primary-blue);
+    color: #ffffff;
+}
+
+.badge-success {
+    background: var(--success-blue);
+    color: #ffffff;
+}
+
+.badge-warning {
+    background: var(--warning-blue);
+    color: #ffffff;
+}
+
+.badge-danger {
+    background: var(--danger-blue);
+    color: #ffffff;
+}
+
+.badge-info {
+    background: var(--info-blue);
+    color: #ffffff;
+}
+
+/* Progress bar styling */
+.progress {
+    border-radius: 12px;
+    background: var(--light-blue);
+    height: 12px;
+    overflow: hidden;
+}
+
+.progress-bar {
+    background: linear-gradient(135deg, var(--secondary-blue) 0%, var(--primary-blue) 100%);
+    border-radius: 12px;
+}
+
+/* Footer styling */
+.footer {
+    font-size: 0.9rem;
+    background: linear-gradient(135deg, var(--primary-blue) 0%, var(--hospital-blue) 100%);
+    color: #ffffff;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 1.5rem 0;
+    box-shadow: 0 -4px 20px rgba(30, 58, 138, 0.3);
+}
+
+/* Utility classes */
+.border-top {
+    border-top: 1px solid #e5e5e5;
+}
+
+.border-bottom {
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow {
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+}
+
+button.accept-policy {
+    font-size: 1rem;
+    line-height: inherit;
+}
+
+/* Dark theme adjustments */
+[data-bs-theme="dark"] {
+    --bs-body-bg: #0f172a;
+    --bs-body-color: #e2e8f0;
+}
+
+    [data-bs-theme="dark"] .card {
+        background: rgba(15, 23, 42, 0.95);
+        backdrop-filter: blur(15px);
+    }
+
+    [data-bs-theme="dark"] .form-control,
+    [data-bs-theme="dark"] .form-select {
+        background: rgba(30, 41, 59, 0.9);
+        border-color: #475569;
+        color: #e2e8f0;
+    }
+
+        [data-bs-theme="dark"] .form-control:focus,
+        [data-bs-theme="dark"] .form-select:focus {
+            background: rgba(30, 41, 59, 1);
+            border-color: var(--accent-blue);
+        }
+
+    [data-bs-theme="dark"] .form-floating > label {
+        color: #94a3b8;
+    }
+
+    [data-bs-theme="dark"] .dropdown-menu {
+        background: rgba(15, 23, 42, 0.95);
+        backdrop-filter: blur(15px);
+    }
+
+    [data-bs-theme="dark"] .dropdown-item {
+        color: #e2e8f0;
+    }
+
+        [data-bs-theme="dark"] .dropdown-item:hover {
+            background: linear-gradient(135deg, rgba(30, 58, 138, 0.3) 0%, rgba(96, 165, 250, 0.2) 100%);
+            color: #ffffff;
+        }
+
+    [data-bs-theme="dark"] .table tbody tr:hover {
+        background: rgba(30, 58, 138, 0.2);
+    }
+
+    [data-bs-theme="dark"] .alert {
+        background: rgba(15, 23, 42, 0.95);
+        backdrop-filter: blur(15px);
+    }
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--light-blue);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, var(--secondary-blue) 0%, var(--primary-blue) 100%);
+    border-radius: 4px;
+}
+
+    ::-webkit-scrollbar-thumb:hover {
+        background: linear-gradient(135deg, var(--primary-blue) 0%, var(--dark-blue) 100%);
+    }
+
+/* Loading spinner */
+.spinner-border {
+    color: var(--primary-blue);
+}
+
+/* Toast notifications */
+.toast {
+    border-radius: 12px;
+    backdrop-filter: blur(10px);
+    border: none;
+}
+
+.toast-header {
+    background: linear-gradient(135deg, var(--primary-blue) 0%, var(--hospital-blue) 100%);
+    color: #ffffff;
+    border: none;
+}
+
+/* Modal styling */
+.modal-content {
+    border-radius: 16px;
+    border: none;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+}
+
+.modal-header {
+    background: linear-gradient(135deg, var(--primary-blue) 0%, var(--hospital-blue) 100%);
+    color: #ffffff;
+    border: none;
+    border-radius: 16px 16px 0 0;
+}
+
+.modal-footer {
+    border-top: 1px solid #e5e7eb;
+    border-radius: 0 0 16px 16px;
+}
+
+[data-bs-theme="dark"] .modal-content {
+    background: rgba(15, 23, 42, 0.95);
+    backdrop-filter: blur(15px);
+}
+
+[data-bs-theme="dark"] .modal-footer {
+    border-top: 1px solid #475569;
+}
+
+@media (min-width: 992px) {
+    .navbar-expand-lg .navbar-nav .dropdown-menu.show {
+        display: block !important;
+        visibility: visible !important;
+    }

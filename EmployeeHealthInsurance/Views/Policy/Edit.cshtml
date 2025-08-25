@@ -1,0 +1,49 @@
+﻿@model EmployeeHealthInsurance.Models.Policy
+
+@{
+    ViewData["Title"] = "Edit Policy";
+}
+
+<div class="card mt-4 shadow-sm">
+    
+    <div class="card-header text-white">
+        <h3 class="mb-0">Edit Policy</h3>
+    </div>
+    <div class="card-body">
+        <form asp-action="Edit" method="post">
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+            <input type="hidden" asp-for="PolicyId" />
+
+            <div class="form-group">
+                <label asp-for="PolicyName" class="control-label"></label>
+                <input asp-for="PolicyName" class="form-control" />
+                <span asp-validation-for="PolicyName" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="CoverageAmount" class="control-label"></label>
+                <input asp-for="CoverageAmount" class="form-control" />
+                <span asp-validation-for="CoverageAmount" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="PremiumAmount" class="control-label"></label>
+                <input asp-for="PremiumAmount" class="form-control" />
+                <span asp-validation-for="PremiumAmount" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="PolicyType" class="control-label"></label>
+                <select asp-for="PolicyType" class="form-control" asp-items="Html.GetEnumSelectList<PolicyType>()"></select>
+                <span asp-validation-for="PolicyType" class="text-danger"></span>
+            </div>
+
+           
+            <button type="submit" class="btn btn-primary">Save</button>
+            <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+            <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+        </form>
+    </div>
+</div>

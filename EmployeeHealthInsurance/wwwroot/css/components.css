@@ -1,0 +1,414 @@
+﻿/* Additional Insurance Theme Enhancements */
+
+/* Insurance-themed icons */
+.insurance-icon {
+    color: var(--primary-blue);
+    font-size: 1.5rem;
+    margin-right: 0.5rem;
+}
+
+/* Enhanced card animations */
+.card {
+    position: relative;
+}
+
+    .card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(135deg, transparent 0%, rgba(96, 165, 250, 0.05) 100%);
+        border-radius: 16px;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        pointer-events: none;
+    }
+
+    .card:hover::before {
+        opacity: 1;
+    }
+
+/* Professional form groups */
+.form-group {
+    margin-bottom: 1.5rem;
+    position: relative;
+}
+
+    .form-group label {
+        font-weight: 600;
+        color: var(--primary-blue);
+        margin-bottom: 0.5rem;
+    }
+
+/* Enhanced table styling */
+.table-responsive {
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Professional pagination */
+.pagination .page-link {
+    color: var(--primary-blue);
+    border: 1px solid var(--light-blue);
+    border-radius: 8px;
+    margin: 0 2px;
+    transition: all 0.3s ease;
+}
+
+    .pagination .page-link:hover {
+        background: var(--primary-blue);
+        color: #ffffff;
+        transform: translateY(-1px);
+    }
+
+.pagination .page-item.active .page-link {
+    background: linear-gradient(135deg, var(--primary-blue) 0%, var(--hospital-blue) 100%);
+    border-color: var(--primary-blue);
+    color: #ffffff;
+}
+
+/* Professional breadcrumbs */
+.breadcrumb {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 12px;
+    padding: 1rem 1.5rem;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.breadcrumb-item + .breadcrumb-item::before {
+    color: var(--primary-blue);
+}
+
+.breadcrumb-item.active {
+    color: var(--primary-blue);
+    font-weight: 600;
+}
+
+/* Professional tooltips */
+.tooltip .tooltip-inner {
+    background: var(--primary-blue);
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.tooltip.bs-tooltip-top .tooltip-arrow::before {
+    border-top-color: var(--primary-blue);
+}
+
+.tooltip.bs-tooltip-bottom .tooltip-arrow::before {
+    border-bottom-color: var(--primary-blue);
+}
+
+.tooltip.bs-tooltip-start .tooltip-arrow::before {
+    border-left-color: var(--primary-blue);
+}
+
+.tooltip.bs-tooltip-end .tooltip-arrow::before {
+    border-right-color: var(--primary-blue);
+}
+
+/* Professional popovers */
+.popover {
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    backdrop-filter: blur(10px);
+}
+
+.popover-header {
+    background: linear-gradient(135deg, var(--primary-blue) 0%, var(--hospital-blue) 100%);
+    color: #ffffff;
+    border: none;
+    border-radius: 12px 12px 0 0;
+    font-weight: 600;
+}
+
+/* Professional list groups */
+.list-group-item {
+    border: 1px solid var(--light-blue);
+    border-radius: 8px;
+    margin-bottom: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+    .list-group-item:hover {
+        background: var(--light-blue);
+        transform: translateX(5px);
+    }
+
+    .list-group-item.active {
+        background: linear-gradient(135deg, var(--primary-blue) 0%, var(--hospital-blue) 100%);
+        border-color: var(--primary-blue);
+        color: #ffffff;
+    }
+
+/* Professional accordion */
+/*.accordion-item {
+    border: none;
+    border-radius: 12px;
+    margin-bottom: 1rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.accordion-button {
+    background: linear-gradient(135deg, var(--primary-blue) 0%, var(--hospital-blue) 100%);
+    color: #ffffff;
+    border: none;
+    font-weight: 600;
+    border-radius: 12px 12px 0 0;
+}
+
+    .accordion-button:not(.collapsed) {
+        background: linear-gradient(135deg, var(--hospital-blue) 0%, var(--primary-blue) 100%);
+        color: #ffffff;
+    }
+
+    .accordion-button:focus {
+        box-shadow: 0 0 0 0.2rem rgba(96, 165, 250, 0.25);
+    }*/
+
+
+/* Professional accordion */
+.accordion-item {
+    border: none;
+    border-radius: 12px;
+    margin-bottom: 1rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    background-color: var(--bs-body-bg); /* Use Bootstrap variable for background */
+    transition: all 0.3s ease;
+}
+
+    .accordion-item:hover {
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15); /* Slightly enhanced hover effect */
+    }
+
+.accordion-button {
+    background: linear-gradient(135deg, var(--primary-blue) 0%, var(--hospital-blue) 100%);
+    color: #ffffff;
+    border: none;
+    font-weight: 600;
+    border-radius: 12px 12px 0 0;
+    transition: all 0.3s ease;
+}
+
+    .accordion-button:not(.collapsed) {
+        background: linear-gradient(135deg, var(--hospital-blue) 0%, var(--primary-blue) 100%);
+        color: #ffffff;
+    }
+
+/* Fix for the background of the accordion body */
+.accordion-body {
+    background-color: var(--bs-light-bg-subtle); /* Use a subtle background color for consistency */
+    border-top: 1px solid var(--light-blue);
+    color: var(--primary-blue);
+    padding: 1.5rem;
+}
+
+/* Ensuring focus styles are consistent and clear */
+.accordion-button:focus {
+    box-shadow: 0 0 0 0.1rem var(--light-blue), 0 0 0 0.25rem var(--accent-blue);
+}
+
+/* Dark theme adjustments for accordion */
+[data-bs-theme="dark"] .accordion-item {
+    background: rgba(15, 23, 42, 0.95);
+    backdrop-filter: blur(15px);
+}
+
+[data-bs-theme="dark"] .accordion-body {
+    background: rgba(30, 41, 59, 0.9);
+    border-top: 1px solid #475569;
+    color: #e2e8f0;
+}
+
+/* Professional carousel */
+.carousel-control-prev,
+.carousel-control-next {
+    background: rgba(30, 58, 138, 0.8);
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    margin: auto 1rem;
+    backdrop-filter: blur(10px);
+}
+
+.carousel-indicators [data-bs-target] {
+    background: var(--primary-blue);
+    border-radius: 50%;
+    width: 12px;
+    height: 12px;
+}
+
+/* Professional spinners */
+.spinner-grow {
+    color: var(--primary-blue);
+}
+
+/* Professional placeholders */
+.placeholder {
+    background: linear-gradient(135deg, var(--light-blue) 0%, rgba(96, 165, 250, 0.1) 100%);
+    border-radius: 8px;
+}
+
+/* Professional offcanvas */
+.offcanvas-header {
+    background: linear-gradient(135deg, var(--primary-blue) 0%, var(--hospital-blue) 100%);
+    color: #ffffff;
+    border: none;
+}
+
+.offcanvas-title {
+    font-weight: 600;
+}
+
+/* Professional collapse */
+.collapse {
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+/* Professional fade */
+.fade {
+    transition: opacity 0.3s ease;
+}
+
+/* Professional slide */
+.slide {
+    transition: transform 0.3s ease;
+}
+
+/* Professional zoom */
+.zoom {
+    transition: transform 0.3s ease;
+}
+
+    .zoom:hover {
+        transform: scale(1.05);
+    }
+
+/* Professional glow effect */
+.glow {
+    box-shadow: 0 0 20px rgba(96, 165, 250, 0.3);
+}
+
+    .glow:hover {
+        box-shadow: 0 0 30px rgba(96, 165, 250, 0.5);
+    }
+
+/* Professional gradient text */
+.gradient-text {
+    background: linear-gradient(135deg, var(--primary-blue) 0%, var(--hospital-blue) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: 700;
+}
+
+/* Professional border gradient */
+.border-gradient {
+    border: 2px solid;
+    border-image: linear-gradient(135deg, var(--primary-blue) 0%, var(--hospital-blue) 100%) 1;
+    border-radius: 12px;
+}
+
+/* Professional shadow utilities */
+.shadow-insurance {
+    box-shadow: 0 8px 30px rgba(30, 58, 138, 0.15);
+}
+
+.shadow-insurance-lg {
+    box-shadow: 0 15px 50px rgba(30, 58, 138, 0.2);
+}
+
+/* Professional animation utilities */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in-up {
+    animation: fadeInUp 0.6s ease-out;
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.slide-in-left {
+    animation: slideInLeft 0.6s ease-out;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+.pulse {
+    animation: pulse 2s infinite;
+}
+
+/* Professional responsive utilities */
+@media (max-width: 768px) {
+    .card {
+        margin-bottom: 1rem;
+    }
+
+    .btn {
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+    }
+
+    .navbar-brand span {
+        font-size: 1rem;
+    }
+
+    .brand-title {
+        font-size: 1.5rem;
+    }
+}
+
+/* Professional print styles */
+@media print {
+    .navbar,
+    .footer,
+    .btn,
+    .theme-toggle {
+        display: none !important;
+    }
+
+    .card {
+        box-shadow: none;
+        border: 1px solid #dee2e6;
+    }
+
+    .table {
+        box-shadow: none;
+        border: 1px solid #dee2e6;
+    }
+}

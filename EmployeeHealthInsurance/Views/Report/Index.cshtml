@@ -1,0 +1,35 @@
+﻿@{
+    ViewData["Title"] = "Reports";
+}
+
+<div class="row justify-content-center mt-4">
+    <div class="col-lg-8">
+        <div class="card shadow-sm">
+            <div class="card-header bg-dark text-white">
+                <h3 class="mb-0">Reports</h3>
+            </div>
+            <div class="card-body">
+                <div class="list-group">
+                    <a asp-controller="Report" asp-action="Employee" class="list-group-item list-group-item-action">
+                        Employee Report (PDF)
+                    </a>
+                    <a asp-controller="Report" asp-action="Policy" class="list-group-item list-group-item-action">
+                        Policy Report (Excel)
+                    </a>
+                    <a asp-controller="Report" asp-action="Enrollment" class="list-group-item list-group-item-action">
+                        Enrollment Report (Excel)
+                    </a>
+                    <a asp-controller="Report" asp-action="Claims" class="list-group-item list-group-item-action">
+                        Claims Report (Excel)
+                    </a>
+                    <a asp-controller="Report" asp-action="Organizations" class="list-group-item list-group-item-action">
+                        Organizations Report (Excel)
+                    </a>
+                    <a asp-controller="Report" asp-action="PremiumCalculator" class="list-group-item list-group-item-action">
+                        Premium Calculator Report (Excel)
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

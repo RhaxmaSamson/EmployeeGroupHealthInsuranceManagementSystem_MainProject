@@ -1,0 +1,58 @@
+﻿@{
+    ViewData["Title"] = "Premium Calculator";
+}
+
+<div class="row justify-content-center mt-4">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header bg-primary text-white">
+                <h3 class="mb-0">Premium Calculator</h3>
+            </div>
+            <div class="card-body">
+                <form asp-action="CalculateResult" method="post">
+                    @Html.AntiForgeryToken()
+                    <div class="form-group mb-3">
+                        <label for="policyId">Policy ID</label>
+                        <input type="number" class="form-control" id="policyId" name="policyId" required />
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="employeeId">Employee ID</label>
+                        <input type="number" class="form-control" id="employeeId" name="employeeId" required />
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="age">Age (optional)</label>
+                        <input type="number" class="form-control" id="age" name="age" />
+                    </div>
+                    <div class="form-group mb-4">
+                        <label for="dependents">Dependents (optional)</label>
+                        <input type="number" class="form-control" id="dependents" name="dependents" />
+                    </div>
+                    <button type="submit" class="btn btn-success">Calculate</button>
+                </form>
+
+                @if (ViewBag.Premium != null)
+                {
+                    <div class="alert alert-info mt-4">
+                        <strong>Calculated Premium:</strong> @ViewBag.Premium
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Show result only if Premium is calculated -->
+@if (ViewBag.Premium != null)
+
+{
+    <div class="row justify-content-center mt-5">
+        <div class="col-md-4">
+            <div class="alert alert-success text-center shadow">
+                <h4 class="mb-3">Calculated Premium</h4>
+                <p class="display-6">₹@ViewBag.Premium</p>
+            </div>
+        </div>
+    </div>
+
+}
+

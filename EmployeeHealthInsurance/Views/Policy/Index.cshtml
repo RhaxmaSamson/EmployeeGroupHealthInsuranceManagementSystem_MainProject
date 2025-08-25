@@ -1,0 +1,46 @@
+﻿@model IEnumerable<EmployeeHealthInsurance.Models.Policy>
+
+@{
+    ViewData["Title"] = "Policies";
+}
+
+<div class="card shadow-sm mt-4">
+    <div class="card-header bg-success text-white">
+        <h3 class="mb-0">Available Policies</h3>
+    </div>
+    <div class="card-body">
+        <p>
+            @* Add action to create new policy if needed *@
+        </p>
+        <table class="table table-striped table-hover">
+            <thead>
+                <tr>
+                    <th>Policy Name</th>
+                    <th>Coverage Amount</th>
+                    <th>Premium Amount</th>
+                    <th>Policy Type</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@Html.DisplayFor(modelItem => item.PolicyName)</td>
+                        <td>@Html.DisplayFor(modelItem => item.CoverageAmount)</td>
+                        <td>@Html.DisplayFor(modelItem => item.PremiumAmount)</td>
+                        <td>@Html.DisplayFor(modelItem => item.PolicyType)</td>
+                        <td class="d-flex gap-2">
+                            <a asp-action="Details" asp-route-id="@item.PolicyId" class="btn btn-sm btn-info">View</a>
+                            @if (User.IsInRole("Admin"))
+                            {
+                                <a asp-action="Edit" asp-route-id="@item.PolicyId" class="btn btn-sm btn-warning">Edit</a>
+                                <a asp-action="Delete" asp-route-id="@item.PolicyId" class="btn btn-sm btn-danger">Delete</a>
+                            }
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

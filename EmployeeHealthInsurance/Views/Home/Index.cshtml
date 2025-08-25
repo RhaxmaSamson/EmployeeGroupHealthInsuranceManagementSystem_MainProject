@@ -1,0 +1,90 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center py-5">
+    <h1 class="display-4 text-primary fw-bold">Welcome to the Health Insurance System!</h1>
+    <p class="lead text-muted">Efficiently manage group health insurance policies for employees.</p>
+</div>
+
+<div class="row mt-5">
+    <div class="col-md-4 mb-4">
+        <div class="card h-100 shadow-sm">
+            @* {{-- Removed bg-primary class --}} *@
+            <div class="card-header text-white">
+                <h5 class="card-title mb-0">Employee Management</h5>
+            </div>
+            <div class="card-body d-flex flex-column">
+                <p class="card-text">Handles employee registration, profile updates, and viewing employee lists.</p>
+                <div class="mt-auto">
+                    @* {{-- Updated button classes for consistency with purple theme --}} *@
+                    <a asp-controller="Employee" asp-action="Register" class="btn btn-sm mb-2 d-block">Register Employee</a>
+                    <a asp-controller="Employee" asp-action="List" class="btn btn-outline-secondary btn-sm d-block">View Employees</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 mb-4">
+        <div class="card h-100 shadow-sm">
+            @* {{-- Removed bg-success class --}} *@
+            <div class="card-header text-white">
+                <h5 class="card-title mb-0">Policy Enrollment</h5>
+            </div>
+            <div class="card-body d-flex flex-column">
+                <p class="card-text">Facilitates employee enrollment into various group insurance policies and manages enrollment status.</p>
+                <div class="mt-auto">
+                    @* {{-- Updated button classes for consistency with purple theme --}} *@
+                    <a asp-controller="Enrollment" asp-action="Enroll" class="btn btn-sm mb-2 d-block">New Enrollment</a>
+                    <a asp-controller="Enrollment" asp-action="List" class="btn btn-outline-secondary btn-sm d-block">View Enrollments</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 mb-4">
+        <div class="card h-100 shadow-sm">
+            @* {{-- Removed bg-info class --}} *@
+            <div class="card-header text-white">
+                <h5 class="card-title mb-0">Claims Management</h5>
+            </div>
+            <div class="card-body d-flex flex-column">
+                <p class="card-text">Manages submission, processing, and approval/rejection of insurance claims.</p>
+                <div class="mt-auto">
+                    @* {{-- Updated button classes for consistency with purple theme --}} *@
+                    <a asp-controller="Claim" asp-action="Submit" class="btn btn-sm mb-2 d-block">Submit Claim</a>
+                    <a asp-controller="Claim" asp-action="List" class="btn btn-outline-secondary btn-sm d-block">View Claims</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 mb-4">
+        <div class="card h-100 shadow-sm">
+            @* {{-- Removed bg-warning class (this was the yellow one!) --}} *@
+            <div class="card-header text-white">
+                <h5 class="card-title mb-0">Policy & Organization Overview</h5>
+            </div>
+            <div class="card-body d-flex flex-column">
+                <p class="card-text">Access detailed information about available insurance policies and registered organizations.</p>
+                <div class="mt-auto">
+                    @* {{-- Updated button classes for consistency with purple theme --}} *@
+                    <a asp-controller="Policy" asp-action="Index" class="btn btn-sm mb-2 d-block">View Policies</a>
+                    <a asp-controller="Organization" asp-action="Index" class="btn btn-outline-secondary btn-sm d-block">View Organizations</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 mb-4">
+        <div class="card h-100 shadow-sm">
+            @* {{-- Removed bg-danger class --}} *@
+            <div class="card-header text-white">
+                <h5 class="card-title mb-0">Reporting Module</h5>
+            </div>
+            <div class="card-body d-flex flex-column">
+                <p class="card-text">Generate comprehensive reports for HR managers and administrators to gain insights.</p>
+                <div class="mt-auto">
+                    @* {{-- Updated button classes for consistency with purple theme --}} *@
+                    <a asp-controller="Report" asp-action="Index" class="btn btn-sm d-block">Generate Reports</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,81 @@
+﻿@model EmployeeHealthInsurance.Models.Policy
+
+@{
+    ViewData["Title"] = "Edit Policy";
+}
+
+<div class="card mt-4 shadow-sm">
+    <div class="card-header">
+        <h3 class="mb-0">
+            <i class="bi bi-file-earmark-text me-2"></i>
+            Edit Policy
+        </h3>
+    </div>
+    <div class="card-body">
+        <form asp-action="Edit" method="post">
+            @Html.AntiForgeryToken()
+            <div asp-validation-summary="ModelOnly" class="alert alert-danger" role="alert"></div>
+
+            <input type="hidden" asp-for="PolicyId" />
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group mb-3">
+                        <label asp-for="PolicyName" class="form-label fw-semibold"></label>
+                        <input asp-for="PolicyName" class="form-control" placeholder="Enter policy name" required />
+                        <span asp-validation-for="PolicyName" class="text-danger small"></span>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group mb-3">
+                        <label asp-for="PolicyType" class="form-label fw-semibold"></label>
+                        <select asp-for="PolicyType" class="form-control" asp-items="Html.GetEnumSelectList<PolicyType>()">
+                            <option value="">Select Policy Type</option>
+                        </select>
+                        <span asp-validation-for="PolicyType" class="text-danger small"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group mb-3">
+                        <label asp-for="CoverageAmount" class="form-label fw-semibold"></label>
+                        <div class="input-group">
+                            <span class="input-group-text">$</span>
+                            <input asp-for="CoverageAmount" class="form-control" type="number" step="0.01" min="0" placeholder="0.00" required />
+                        </div>
+                        <span asp-validation-for="CoverageAmount" class="text-danger small"></span>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group mb-3">
+                        <label asp-for="PremiumAmount" class="form-label fw-semibold"></label>
+                        <div class="input-group">
+                            <span class="input-group-text">$</span>
+                            <input asp-for="PremiumAmount" class="form-control" type="number" step="0.01" min="0" placeholder="0.00" required />
+                        </div>
+                        <span asp-validation-for="PremiumAmount" class="text-danger small"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="d-flex gap-2">
+                <button type="submit" class="btn btn-primary">
+                    <i class="bi bi-check-circle me-1"></i>
+                    Save Changes
+                </button>
+                <a asp-action="Index" class="btn btn-secondary">
+                    <i class="bi bi-arrow-left me-1"></i>
+                    Back to List
+                </a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

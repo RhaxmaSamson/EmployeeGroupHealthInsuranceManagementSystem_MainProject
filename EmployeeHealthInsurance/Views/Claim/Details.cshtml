@@ -1,0 +1,53 @@
+﻿@model EmployeeHealthInsurance.Models.Claim
+
+@{
+    ViewData["Title"] = "Claim Details";
+}
+
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card shadow-sm">
+            <div class="card-header bg-info text-white">
+                <h3 class="mb-0">Claim Details</h3>
+            </div>
+            <div class="card-body">
+                <dl class="row">
+                    <dt class="col-sm-3">Claim ID</dt>
+                    <dd class="col-sm-9">@Model.ClaimId</dd>
+
+                    <dt class="col-sm-3">Enrollment ID</dt>
+                    <dd class="col-sm-9">@Model.EnrollmentId</dd>
+
+                    <dt class="col-sm-3">Claim Amount</dt>
+                    <dd class="col-sm-9">@Model.ClaimAmount</dd>
+
+                    <dt class="col-sm-3">Reason</dt>
+                    <dd class="col-sm-9">@Model.ClaimReason</dd>
+
+                    <dt class="col-sm-3">Claim Date</dt>
+                    <dd class="col-sm-9">@Model.ClaimDate</dd>
+
+                    <dt class="col-sm-3">Status</dt>
+                    <dd class="col-sm-9">@Model.ClaimStatus</dd>
+                </dl>
+
+                @if (User.IsInRole("HRManager"))
+                {
+                    <form asp-action="UpdateStatus" asp-route-id="@Model.ClaimId" method="post" class="mt-3">
+                        <div class="input-group">
+                            <select name="status" class="form-select">
+                                <option value="SUBMITTED" selected>SUBMITTED</option>
+                                <option value="APPROVED">APPROVED</option>
+                                <option value="REJECTED">REJECTED</option>
+                            </select>
+                            <button type="submit" class="btn btn-primary">Update Status</button>
+                        </div>
+                    </form>
+                }
+            </div>
+            <div class="card-footer text-muted">
+                <a asp-action="List" class="btn btn-secondary">Back to List</a>
+            </div>
+        </div>
+    </div>
+</div>

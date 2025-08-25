@@ -1,0 +1,97 @@
+﻿@{
+	Layout = "~/Views/Shared/_AuthLayout.cshtml";
+	ViewData["Title"] = "Login";
+}
+
+<div class="row justify-content-center">
+	<div class="col-lg-10">
+		<div class="row g-4">
+
+			<div class="col-md-6">
+				<div class="card login-card">
+					<div class="card-header bg-danger text-white">
+						<div class="d-flex align-items-center">
+							<i class="bi bi-shield-lock-fill me-2"></i>
+							<h5 class="mb-0">Admin / HR Login</h5>
+						</div>
+					</div>
+					<div class="card-body">
+						<form asp-controller="Auth" asp-action="Login" asp-route-role="hr" method="post" autocomplete="off">
+							@Html.AntiForgeryToken()
+
+							<input type="text" name="fakeusernameremembered" autocomplete="off" style="display:none" />
+							<input type="password" name="fakepasswordremembered" autocomplete="new-password" style="display:none" />
+
+							<div class="form-floating mb-3">
+								<input id="hrEmail" name="Email" type="email" class="form-control" placeholder="hr.manager@company.com" required autocomplete="off" autocapitalize="none" spellcheck="false" inputmode="email" />
+								<label for="hrEmail">Email</label>
+							</div>
+
+							<div class="form-floating mb-3">
+								<input id="hrPassword" name="Password" type="password" class="form-control" placeholder="Password" required autocomplete="new-password" autocapitalize="none" spellcheck="false" />
+								<label for="hrPassword">Password</label>
+							</div>
+
+							<div class="form-check mb-3">
+								<input class="form-check-input" id="hrRemember" name="RememberMe" type="checkbox" />
+								<label class="form-check-label" for="hrRemember">Remember me</label>
+							</div>
+
+							<button type="submit" class="btn btn-danger w-100">
+								<i class="bi bi-box-arrow-in-right me-1"></i> Login as HR/Admin
+							</button>
+							<p class="text-muted small mb-0 mt-2">Use an account in role <code>HRManager/Admin</code>.</p>
+						</form>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-md-6">
+				<div class="card login-card">
+					<div class="card-header bg-primary text-white">
+						<div class="d-flex align-items-center">
+							<i class="bi bi-people-fill me-2"></i>
+							<h5 class="mb-0">Employee Login</h5>
+						</div>
+					</div>
+					<div class="card-body">
+						<form asp-controller="Auth" asp-action="Login" asp-route-role="employee" method="post" autocomplete="off">
+							@Html.AntiForgeryToken()
+
+							<input type="text" name="fakeusernameremembered" autocomplete="off" style="display:none" />
+							<input type="password" name="fakepasswordremembered" autocomplete="new-password" style="display:none" />
+
+							<div class="form-floating mb-3">
+								<input id="empEmail" name="Email" type="email" class="form-control" placeholder="employee@company.com" required autocomplete="off" autocapitalize="none" spellcheck="false" inputmode="email" />
+								<label for="empEmail">Email</label>
+							</div>
+
+							<div class="form-floating mb-3">
+								<input id="empPassword" name="Password" type="password" class="form-control" placeholder="Password" required autocomplete="new-password" autocapitalize="none" spellcheck="false" />
+								<label for="empPassword">Password</label>
+							</div>
+
+							<div class="form-check mb-3">
+								<input class="form-check-input" id="empRemember" name="RememberMe" type="checkbox" />
+								<label class="form-check-label" for="empRemember">Remember me</label>
+							</div>
+
+							<button type="submit" class="btn btn-primary w-100">
+								<i class="bi bi-box-arrow-in-right me-1"></i> Login as Employee
+							</button>
+							<p class="text-muted small mb-0 mt-2">Employees can login after HR registers them.</p>
+						</form>
+					</div>
+				</div>
+			</div>
+
+		</div>
+
+		@if (!ViewData.ModelState.IsValid)
+		{
+			<div class="alert alert-warning mt-4">
+				Please correct the errors and try again.
+			</div>
+		}
+	</div>
+</div>

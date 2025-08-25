@@ -1,0 +1,27 @@
+﻿@model EmployeeHealthInsurance.Models.Policy
+
+@{
+    ViewData["Title"] = "Policy Details";
+}
+
+<div class="card mt-4 shadow-sm">
+    <div class="card-header bg-info text-white">
+        <h3 class="mb-0">Policy Details</h3>
+    </div>
+    <div class="card-body">
+        <dl class="row">
+            <dt class="col-sm-3">Policy Name</dt>
+            <dd class="col-sm-9">@Model.PolicyName</dd>
+
+            <dt class="col-sm-3">Coverage Amount</dt>
+            <dd class="col-sm-9">@Model.CoverageAmount</dd>
+
+            <dt class="col-sm-3">Premium Amount</dt>
+            <dd class="col-sm-9">@Model.PremiumAmount</dd>
+
+            <dt class="col-sm-3">Policy Type</dt>
+            <dd class="col-sm-9">@Model.PolicyType</dd>
+        </dl>
+        <a asp-action="Index" class="btn btn-secondary">Back to Policies</a>
+    </div>
+</div>
