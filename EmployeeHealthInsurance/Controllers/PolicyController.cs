@@ -1,4 +1,4 @@
-﻿using EmployeeHealthInsurance.Models;
+using EmployeeHealthInsurance.Models;
 using EmployeeHealthInsurance.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -14,6 +14,29 @@ public class PolicyController : Controller
     public PolicyController(IPolicyService policyService)
     {
         _policyService = policyService;
+    }
+
+    // GET: Policy/Create (Admin only)
+    [Authorize(Roles = "Admin")]
+    public IActionResult Create()
+    {
+        return View(new Policy());
+    }
+
+    // POST: Policy/Create (Admin only)
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    [Authorize(Roles = "Admin")]
+    public async Task<IActionResult> Create(Policy policy)
+    {
+        if (!ModelState.IsValid)
+        {
+            return View(policy);
+        }
+
+        await _policyService.AddPolicyAsync(policy);
+        TempData["SuccessMessage"] = "Policy created successfully!";
+        return RedirectToAction(nameof(Index));
     }
 
     // GET: Policy/Index
@@ -40,6 +63,18 @@ public class PolicyController : Controller
 
     [Authorize(Roles = "Admin")]
     public async Task<IActionResult> Edit(int id)
+    {
+        var policy = await _policyService.GetPolicyByIdAsync(id);
+        if (policy == null)
+        {
+            return NotFound();
+        }
+        return View(policy);
+    }
+
+    // GET: Policy/Delete/5 (Admin only)
+    [Authorize(Roles = "Admin")]
+    public async Task<IActionResult> Delete(int id)
     {
         var policy = await _policyService.GetPolicyByIdAsync(id);
         if (policy == null)

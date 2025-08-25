@@ -1,0 +1,56 @@
+@model EmployeeHealthInsurance.Models.Policy
+
+@{
+    ViewData["Title"] = "Create Policy";
+}
+
+<div class="card mt-4 shadow-sm">
+    <div class="card-header bg-success text-white">
+        <h3 class="mb-0">Create Policy</h3>
+    </div>
+    <div class="card-body">
+        <form asp-action="Create" method="post">
+            @Html.AntiForgeryToken()
+            <div asp-validation-summary="ModelOnly" class="alert alert-danger" role="alert"></div>
+
+            <div class="form-group mb-3">
+                <label asp-for="PolicyName" class="form-label"></label>
+                <input asp-for="PolicyName" class="form-control" />
+                <span asp-validation-for="PolicyName" class="text-danger"></span>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group mb-3">
+                        <label asp-for="CoverageAmount" class="form-label"></label>
+                        <input asp-for="CoverageAmount" class="form-control" type="number" step="0.01" min="0" />
+                        <span asp-validation-for="CoverageAmount" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group mb-3">
+                        <label asp-for="PremiumAmount" class="form-label"></label>
+                        <input asp-for="PremiumAmount" class="form-control" type="number" step="0.01" min="0" />
+                        <span asp-validation-for="PremiumAmount" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="PolicyType" class="form-label"></label>
+                <select asp-for="PolicyType" class="form-control" asp-items="Html.GetEnumSelectList<PolicyType>()"></select>
+                <span asp-validation-for="PolicyType" class="text-danger"></span>
+            </div>
+
+            <div class="d-flex gap-2">
+                <button type="submit" class="btn btn-success">Create</button>
+                <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+}
+

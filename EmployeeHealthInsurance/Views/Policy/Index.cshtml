@@ -1,4 +1,4 @@
-﻿@model IEnumerable<EmployeeHealthInsurance.Models.Policy>
+@model IEnumerable<EmployeeHealthInsurance.Models.Policy>
 
 @{
     ViewData["Title"] = "Policies";
@@ -10,7 +10,10 @@
     </div>
     <div class="card-body">
         <p>
-            @* Add action to create new policy if needed *@
+            @if (User.IsInRole("Admin"))
+            {
+                <a asp-action="Create" class="btn btn-sm btn-success">Create Policy</a>
+            }
         </p>
         <table class="table table-striped table-hover">
             <thead>
