@@ -1,4 +1,4 @@
-﻿using EmployeeHealthInsurance.Models;
+using EmployeeHealthInsurance.Models;
 using EmployeeHealthInsurance.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -40,6 +40,18 @@ public class PolicyController : Controller
 
     [Authorize(Roles = "Admin")]
     public async Task<IActionResult> Edit(int id)
+    {
+        var policy = await _policyService.GetPolicyByIdAsync(id);
+        if (policy == null)
+        {
+            return NotFound();
+        }
+        return View(policy);
+    }
+
+    // GET: Policy/Delete/5 (Admin only)
+    [Authorize(Roles = "Admin")]
+    public async Task<IActionResult> Delete(int id)
     {
         var policy = await _policyService.GetPolicyByIdAsync(id);
         if (policy == null)
