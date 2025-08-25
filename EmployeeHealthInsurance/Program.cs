@@ -68,15 +68,7 @@ using (var scope = app.Services.CreateScope())
 }
 
 
-// Seed the database with roles and a user (for development only)
-using (var scope = app.Services.CreateScope())
-{
-    var services = scope.ServiceProvider;
-    var context = services.GetRequiredService<ApplicationDbContext>();
-    var userManager = services.GetRequiredService<UserManager<IdentityUser>>();
-    var roleManager = services.GetRequiredService<RoleManager<IdentityRole>>();
-    await DbInitializer.Initialize(context, userManager, roleManager);
-}
+// Duplicate seeding block removed to avoid running twice
 
 
 // Configure the HTTP request pipeline.
