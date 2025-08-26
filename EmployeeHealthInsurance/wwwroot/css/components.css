@@ -1,4 +1,4 @@
-﻿/* Additional Insurance Theme Enhancements */
+/* Additional Insurance Theme Enhancements */
 
 /* Insurance-themed icons */
 .insurance-icon {
@@ -271,6 +271,11 @@
 .collapse {
     border-radius: 12px;
     overflow: hidden;
+}
+
+/* Ensure navbar dropdowns are not clipped by collapse */
+.navbar .collapse {
+    overflow: visible;
 }
 
 /* Professional fade */
