@@ -33,4 +33,26 @@ public class PolicyController : Controller
 
         return View(policy);
     }
+
+    // GET: Policy/Delete/5 (Admin only)
+    [Authorize(Roles = "Admin")]
+    public async Task<IActionResult> Delete(int id)
+    {
+        var policy = await _policyService.GetPolicyByIdAsync(id);
+        if (policy == null)
+        {
+            return NotFound();
+        }
+        return View(policy);
+    }
+
+    // POST: Policy/Delete (Admin only)
+    [Authorize(Roles = "Admin")]
+    [HttpPost, ActionName("Delete")]
+    [ValidateAntiForgeryToken]
+    public async Task<IActionResult> DeleteConfirmed(int id)
+    {
+        await _policyService.DeletePolicyAsync(id);
+        return RedirectToAction(nameof(Index));
+    }
 }
